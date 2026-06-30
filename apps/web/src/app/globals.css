@@ -10,27 +10,6 @@
   --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
   
-  /* Institutional theme mappings to match light government design language */
-  --color-slate-950: oklch(0.98 0.005 250); /* Light neutral background (#f8fafc) */
-  --color-slate-900: oklch(1 0 0); /* Pure White cards (#ffffff) */
-  --color-slate-850: oklch(0.96 0.005 250); /* Light gray border base (#f1f5f9) */
-  --color-slate-800: oklch(0.92 0.008 250); /* Light border line (#e2e8f0) */
-  --color-slate-700: oklch(0.87 0.012 250); /* Mid gray (#cbd5e1) */
-  --color-slate-650: oklch(0.55 0.015 250); /* Subtext neutral (#64748b) */
-  --color-slate-600: oklch(0.45 0.015 250); /* Muted slate body text (#475569) */
-  --color-slate-500: oklch(0.35 0.012 250); /* Main body text (#334155) */
-  --color-slate-400: oklch(0.24 0.01 250); /* Heading details (#1e293b) */
-  --color-slate-350: oklch(0.16 0.008 250); /* Dark headings (#0f172a) */
-  --color-slate-300: oklch(0.10 0.005 250); /* Absolute dark navy headings (#020617) */
-  --color-slate-200: oklch(0.08 0.005 250); /* Absolute dark navy headings */
-  --color-slate-100: oklch(0.08 0.005 250);
-  
-  /* Primary & Accent overrides mapping for buttons and highlights */
-  --color-teal-400: oklch(0.52 0.16 160); /* Emerald Green (#059669) */
-  --color-teal-500: oklch(0.52 0.16 160); /* Emerald Green */
-  --color-indigo-500: oklch(0.45 0.20 260); /* Royal Blue (#2563eb) */
-  --color-indigo-600: oklch(0.35 0.22 260); /* Darker Royal Blue */
-  
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -46,6 +25,14 @@
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
   
+  /* Support for premium sub-step color variables used in dashboard templates */
+  --color-slate-150: oklch(0.95 0.005 240); /* #f1f5f9 border tint */
+  --color-slate-250: oklch(0.90 0.008 240); /* #e2e8f0 borders */
+  --color-slate-350: oklch(0.25 0.015 240); /* #1e293b dark slate headings */
+  --color-slate-450: oklch(0.55 0.015 240); /* #64748b subtext neutral */
+  --color-slate-550: oklch(0.42 0.015 240); /* #475569 body subtext */
+  --color-slate-650: oklch(0.60 0.015 240); /* #64748b text */
+  
   /* Standardized Design System Radiuses (12px inputs/buttons, 20px cards, 24px dialogs) */
   --radius-sm: 0.75rem;   /* 12px */
   --radius-md: 0.75rem;   /* 12px */
@@ -56,46 +43,46 @@
 }
 
 :root {
-  --background: oklch(0.98 0.005 250); /* #f8fafc */
-  --foreground: oklch(0.12 0.015 240); /* #0c1a30 - Deep Navy/Slate */
-  --card: oklch(1 0 0); /* #ffffff */
-  --card-foreground: oklch(0.12 0.015 240);
+  --background: oklch(0.99 0.003 240); /* Extremely light slate background (#f8fafc) */
+  --foreground: oklch(0.18 0.015 240); /* Dark slate navy text (#0f172a) */
+  --card: oklch(1 0 0); /* Pure White cards (#ffffff) */
+  --card-foreground: oklch(0.18 0.015 240);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.12 0.015 240);
-  --primary: oklch(0.12 0.015 240); /* Deep Navy Blue */
+  --popover-foreground: oklch(0.18 0.015 240);
+  --primary: oklch(0.18 0.015 240); /* Deep Slate Navy Blue */
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.50 0.20 250); /* Royal Blue (#2563eb) */
+  --secondary: oklch(0.50 0.20 250); /* Premium Royal Blue (#2563eb) */
   --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.96 0.005 250); /* #f1f5f9 */
-  --muted-foreground: oklch(0.48 0.015 250); /* #475569 */
-  --accent: oklch(0.52 0.16 160); /* Emerald Green (#059669) */
-  --accent-foreground: oklch(1 0 0);
+  --muted: oklch(0.96 0.005 240); /* Soft light gray border base (#f1f5f9) */
+  --muted-foreground: oklch(0.45 0.015 240); /* Subtext neutral (#64748b) */
+  --accent: oklch(0.95 0.02 160); /* Soft emerald green background */
+  --accent-foreground: oklch(0.20 0.15 160); /* Deep emerald green text */
   --destructive: oklch(0.60 0.18 29);
-  --border: oklch(0.92 0.008 250); /* #e2e8f0 */
-  --input: oklch(0.92 0.008 250);
+  --border: oklch(0.92 0.008 240); /* Light border line (#e2e8f0) */
+  --input: oklch(0.92 0.008 240);
   --ring: oklch(0.50 0.20 250);
   --radius: 0.75rem; /* Base inputs/buttons radius 12px */
 }
 
 /* Enforce Light-First palette by mapping dark mode variables to light equivalents */
 .dark {
-  --background: oklch(0.98 0.005 250);
-  --foreground: oklch(0.12 0.015 240);
+  --background: oklch(0.99 0.003 240);
+  --foreground: oklch(0.18 0.015 240);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.12 0.015 240);
+  --card-foreground: oklch(0.18 0.015 240);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.12 0.015 240);
-  --primary: oklch(0.12 0.015 240);
+  --popover-foreground: oklch(0.18 0.015 240);
+  --primary: oklch(0.18 0.015 240);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.50 0.20 250);
   --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.96 0.005 250);
-  --muted-foreground: oklch(0.48 0.015 250);
-  --accent: oklch(0.52 0.16 160);
-  --accent-foreground: oklch(1 0 0);
+  --muted: oklch(0.96 0.005 240);
+  --muted-foreground: oklch(0.45 0.015 240);
+  --accent: oklch(0.95 0.02 160);
+  --accent-foreground: oklch(0.20 0.15 160);
   --destructive: oklch(0.60 0.18 29);
-  --border: oklch(0.92 0.008 250);
-  --input: oklch(0.92 0.008 250);
+  --border: oklch(0.92 0.008 240);
+  --input: oklch(0.92 0.008 240);
   --ring: oklch(0.50 0.20 250);
 }
 
