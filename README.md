@@ -1,5 +1,7 @@
 # CivicMind AI — Community Hero (Hyperlocal Problem Solver)
 
+**🌐 Live Web Client Deployment**: [https://web-psi-seven-17.vercel.app](https://web-psi-seven-17.vercel.app)
+
 CivicMind AI is an award-winning community resolution platform that enables citizens to identify, report, verify, track, and resolve community infrastructure issues (such as potholes, water leakages, streetlight outages, and sanitation concerns) through collaborative peer validation and intelligent multi-agent AI automation.
 
 ## 🚀 Key Features
