@@ -241,6 +241,15 @@ export default function CommunityFeedPage() {
     }
   };
 
+  const getSeverityBorderColor = (level: string) => {
+    switch (level) {
+      case 'critical': return 'border-t-4 border-t-red-500';
+      case 'high': return 'border-t-4 border-t-orange-500';
+      case 'medium': return 'border-t-4 border-t-amber-500';
+      default: return 'border-t-4 border-t-emerald-500';
+    }
+  };
+
   const getStatusLabel = (s: string) => {
     return s.replace('_', ' ').toUpperCase();
   };
@@ -445,7 +454,7 @@ export default function CommunityFeedPage() {
             return (
               <div 
                 key={issue._id} 
-                className="relative bg-white border border-slate-200 hover:border-slate-350 rounded-3xl p-6 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
+                className={`relative bg-white border border-slate-200 hover:border-slate-350 rounded-3xl p-6 shadow-xs hover:shadow-md transition-all flex flex-col justify-between ${getSeverityBorderColor(issue.aiAnalysis?.severity)}`}
               >
                 <div>
                   {/* Top line badges */}

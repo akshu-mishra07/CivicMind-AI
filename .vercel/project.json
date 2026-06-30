@@ -1,0 +1,16 @@
+{
+  "projectId": "prj_cbCKoldtNhi2bMasacyEoCYR00ZU",
+  "orgId": "team_vpQBOjnthvXGVPhgvYmyt8si",
+  "projectName": "web",
+  "settings": {
+    "createdAt": 1782806336260,
+    "framework": "nextjs",
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": "npm run build",
+    "outputDirectory": "apps/web/.next",
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "24.x"
+  }
+}

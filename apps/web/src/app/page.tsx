@@ -109,33 +109,84 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Hero Right Statistics Sidebar */}
-          <div className="lg:col-span-5 bg-white border border-slate-200 rounded-3xl p-6 shadow-sm space-y-4">
-            <h3 className="text-xs font-extrabold uppercase tracking-widest text-[#0b2240] border-b border-slate-100 pb-3 flex items-center gap-2">
-              <Activity className="h-4.5 w-4.5 text-[#2563eb]" />
-              <span>System Performance Log</span>
-            </h3>
+          {/* Hero Right: AI Swarm Dispatch Monitor Console */}
+          <div className="lg:col-span-5 bg-white border border-slate-200 rounded-3xl p-6 shadow-sm space-y-5 text-left relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500"></div>
+            
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <h3 className="text-xs font-extrabold uppercase tracking-widest text-[#0b2240] flex items-center gap-2">
+                <Activity className="h-4.5 w-4.5 text-[#2563eb]" />
+                <span>AI Swarm Dispatch Monitor</span>
+              </h3>
+              <span className="flex items-center gap-1.5 text-[9px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full uppercase tracking-wider">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-600 animate-ping"></span>
+                Swarm Active
+              </span>
+            </div>
 
-            <div className="space-y-3.5">
+            {/* Swarm Nodes status grid */}
+            <div className="grid grid-cols-2 gap-3">
               {[
-                { label: 'Grievances Filed', value: '542 Incidents', detail: 'Verified by vision analytics' },
-                { label: 'Average Resolution Time', value: '18.4 Hours', detail: '94% SLA compliance rate' },
-                { label: 'Active Swarm Agents', value: '6 Live Nodes', detail: 'Ingesting, prioritizing & planning' },
-                { label: 'Departments Registered', value: '4 Municipal Depts', detail: 'Roads, Sanitation, Water, Electrical' }
-              ].map((stat, idx) => (
-                <div key={idx} className="flex justify-between items-center text-xs border-b border-slate-50 pb-3 last:border-0 last:pb-0">
-                  <div className="text-left">
-                    <p className="font-bold text-slate-500">{stat.label}</p>
-                    <p className="text-[10px] text-slate-400 mt-0.5">{stat.detail}</p>
+                { name: 'Vision Agent', status: 'Idle', load: '0%', color: 'text-emerald-600 bg-emerald-50 border-emerald-100' },
+                { name: 'Duplicate check', status: 'Active', load: '12%', color: 'text-[#2563eb] bg-blue-50 border-blue-100' },
+                { name: 'Priority Matrix', status: 'Idle', load: '0%', color: 'text-emerald-600 bg-emerald-50 border-emerald-100' },
+                { name: 'Repair Planner', status: 'Idle', load: '0%', color: 'text-emerald-600 bg-emerald-50 border-emerald-100' }
+              ].map((node, idx) => (
+                <div key={idx} className="p-3 border border-slate-100 bg-slate-50/50 rounded-2xl flex flex-col justify-between">
+                  <span className="text-[10px] font-bold text-[#0b2240]">{node.name}</span>
+                  <div className="flex items-center justify-between mt-2">
+                    <span className={`text-[8px] uppercase font-bold px-2 py-0.5 border rounded-full ${node.color}`}>
+                      {node.status}
+                    </span>
+                    <span className="text-[10px] font-bold font-mono text-slate-500">{node.load}</span>
                   </div>
-                  <span className="font-extrabold text-[#0b2240] bg-slate-50 border border-slate-100 rounded-lg px-3 py-1 text-right">
-                    {stat.value}
-                  </span>
                 </div>
               ))}
             </div>
-          </div>
 
+            {/* Performance charts section */}
+            <div className="space-y-3 pt-2">
+              <div className="space-y-1">
+                <div className="flex justify-between text-[10px] font-bold">
+                  <span className="text-slate-650 uppercase tracking-wider">SLA Target Resolution</span>
+                  <span className="text-slate-400">94.8% SLA</span>
+                </div>
+                <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+                  <div className="h-full rounded-full bg-[#2563eb] transition-all" style={{ width: '94.8%' }} />
+                </div>
+              </div>
+              
+              <div className="space-y-1">
+                <div className="flex justify-between text-[10px] font-bold">
+                  <span className="text-slate-650 uppercase tracking-wider">Community Verification Rate</span>
+                  <span className="text-slate-400">82.1% Validated</span>
+                </div>
+                <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+                  <div className="h-full rounded-full bg-emerald-600 transition-all" style={{ width: '82.1%' }} />
+                </div>
+              </div>
+            </div>
+
+            {/* Live Ticker Feed */}
+            <div className="border-t border-slate-100 pt-4 space-y-2.5">
+              <span className="text-[9px] uppercase font-extrabold tracking-widest text-slate-450 block">Live Network Log</span>
+              
+              <div className="space-y-2">
+                {[
+                  { text: 'Priya R. verified #CM-2026-0003 in Sector 11', time: '2m ago', color: 'bg-emerald-500' },
+                  { text: 'Planning Agent generated checklist for Water Leak', time: '12m ago', color: 'bg-indigo-500' },
+                  { text: 'Vision Agent classified "Pothole" severity: High', time: '14m ago', color: 'bg-[#2563eb]' }
+                ].map((log, idx) => (
+                  <div key={idx} className="flex items-start gap-2 text-[10px] font-semibold leading-normal text-slate-500">
+                    <span className={`h-1.5 w-1.5 rounded-full mt-1.5 flex-shrink-0 ${log.color}`}></span>
+                    <span className="flex-1 truncate">{log.text}</span>
+                    <span className="text-slate-400 font-bold shrink-0">{log.time}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 
